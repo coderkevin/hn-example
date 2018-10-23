@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<h1 className="App-title">Hacker News Reader</h1>
+				</header>
+				<div className="App-body">
+					<ul>
+						<li>
+							<h3>News Article</h3>
+							<p>Details about the article.</p>
+						</li>
+						<li>
+							<h3>Another News Article</h3>
+							<p>Details about the article.</p>
+						</li>
+						<li>
+							<h3>And Another News Article</h3>
+							<p>Details about the article.</p>
+						</li>
+						<li>
+							<h3>Yet Another News Article</h3>
+							<p>Details about the article.</p>
+						</li>
+					</ul>
+				</div>
+				<footer className="App-footer">
+					<p>created by <a href="https://github.com/coderkevin/hn-example">coderkevin</a></p>
+				</footer>
+			</div>
+		);
+	}
 }
 
 export default App;
