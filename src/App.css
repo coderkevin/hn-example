@@ -16,6 +16,7 @@
 
 .App-body {
 	flex-grow: 1;
+	overflow: auto;
 }
 
 .App-body ul, ol {
