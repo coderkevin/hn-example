@@ -2,6 +2,7 @@ import {
 	getResourceIdentifier,
 	isResourcePrefix
 } from './utils';
+import * as selectors from './selectors';
 
 const BASE_URL = 'https://hacker-news.firebaseio.com/v0/';
 
@@ -15,8 +16,7 @@ export function createApiSpec( fetch = window.fetch ) {
 				];
 			}
 		},
-		selectors: {
-		},
+		selectors,
 	};
 }
 

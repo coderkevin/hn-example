@@ -15,7 +15,8 @@ describe( 'createApiSpec', () => {
 	} );
 
 	it( 'should provide selectors', () => {
-		expect( apiSpec.selectors ).toBeInstanceOf( Object );
+		expect( apiSpec.selectors.getItem ).toBeInstanceOf( Function );
+		expect( apiSpec.selectors.getNewStoryIds ).toBeInstanceOf( Function );
 	} );
 
 	describe( 'operations.read', () => {
