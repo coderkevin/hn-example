@@ -161,58 +161,22 @@ export class ViewportChild extends React.Component {
 		setViewportCallback: PropTypes.func,
 	}
 
-	constructor() {
-		super( ...arguments );
-		this.state = { visible: false };
-		this.onVisibleCallback = null;
-		this.onHiddenCallback = null;
-	}
-
-	componentDidMount() {
-		this.setVisibleCallback();
-	}
-
 	componentWillUnmount() {
 		this.context.setViewportCallback( this, null );
 	}
 
 	onVisible = ( callback ) => {
-		this.onVisibleCallback = callback;
+		const compare = ( distance ) => ( 0 === distance );
+		this.context.setViewportCallback( this, compare, callback );
 	}
 
 	onHidden = ( callback ) => {
-		this.onHiddenCallback = callback;
-	}
-
-	setVisible = () => {
-		if ( ! this.state.visible ) {
-			this.setState( { visible: true } );
-			this.onVisibleCallback && this.onVisibleCallback();
-		}
-		this.setHiddenCallback();
-	}
-
-	setHidden = () => {
-		if ( this.state.visible ) {
-			this.setState( { visible: false } );
-			this.onHiddenCallback && this.onHiddenCallback();
-		}
-		this.setVisibleCallback();
-	}
-
-	setVisibleCallback = () => {
-		const compare = ( distance ) => ( 0 === distance );
-		this.context.setViewportCallback( this, compare, this.setVisible );
-	}
-
-	setHiddenCallback = () => {
 		const compare = ( distance ) => ( 0 < distance );
-		this.context.setViewportCallback( this, compare, this.setHidden );
+		this.context.setViewportCallback( this, compare, callback);
 	}
 
 	render() {
-		const { visible } = this.state;
 		const { onVisible, onHidden } = this;
-		return this.props.children( { visible, onVisible, onHidden } );
+		return this.props.children( { onVisible, onHidden } );
 	}
 }
