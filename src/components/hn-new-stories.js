@@ -46,7 +46,6 @@ class HNNewStories extends React.Component {
 	}
 
 	onMore = () => {
-		console.log( 'onMore' );
 		this.setState( ( state ) => {
 			return { end: state.end + this.props.step };
 		} );
