@@ -14,12 +14,10 @@ class HNStory extends React.Component {
 	}
 
 	onVisible = () => {
-		console.log( 'onVisible' );
 		this.setState( { visible: true } );
 	}
 
 	onHidden = () => {
-		console.log( 'onHidden' );
 		this.setState( { visible: false } );
 	}
 
@@ -47,14 +45,13 @@ const StoryItem = withApiClient( { mapSelectorsToProps } )(
 			);
 		}
 
-		console.log( 'story: ', story );
 		const date = new Date( story.time * 1000 );
 		const dateString = date.toLocaleDateString( undefined, dateOptions );
 		const timeString = date.toLocaleTimeString();
 		return (
-			<li>
+			<li className="App-story">
 				<h3><a href={ story.url }>{ story.title }</a></h3>
-				<p>Posted: { dateString } at { timeString } by { story.by }</p>
+				<p className="App-story-byline">Posted: { dateString } at { timeString } by { story.by }</p>
 			</li>
 		);
 	}

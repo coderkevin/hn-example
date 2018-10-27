@@ -18,7 +18,7 @@
 	flex-grow: 1;
 }
 
-ul, ol {
+.App-body ul, ol {
 	list-style-type: none;
 	padding-top: 1em;
 	padding-left: 1em;
@@ -33,9 +33,22 @@ ul, ol {
 	margin-block-end: 1.25em;
 }
 
-.App-body h2, h3, h4, h5, h6 {
+.App-story h2, h3, h4, h5, h6 {
 	margin-block-start: 0;
 	margin-block-end: 0.25em;
+}
+
+.App-story a:link {
+	color: white;
+}
+
+.App-story a:visited {
+	color: rgb(221, 221, 221);
+}
+
+.App-story-byline {
+	color: rgb(219, 217, 211);
+	font-size: 0.75rem;
 }
 
 .App-body p {
