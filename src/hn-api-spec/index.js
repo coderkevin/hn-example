@@ -24,7 +24,9 @@ function readNewStories( resourceNames, fetch ) {
 	if ( -1 < resourceNames.indexOf( 'newstories' ) ) {
 		const url = BASE_URL + 'newstories.json';
 		const promise = fetch( url ).then( ( response ) => {
-			return { 'newstories': response.json() };
+			return response.json().then( ( data ) => {
+				return { 'newstories': { data } };
+			} );
 		} ).catch( ( error ) => {
 			// TODO: Error handling.
 			console.error( 'error in newstories fetch: ', error );
@@ -44,7 +46,9 @@ function readItem( resourceName, fetch ) {
 	const url = `${ BASE_URL }item/${ id }.json`;
 
 	return fetch( url ).then( ( response ) => {
-		return { [ resourceName ]: response.json() };
+		return response.json().then( ( data ) => {
+			return { [ resourceName ]: { data } };
+		} );
 	} ).catch( ( error ) => {
 		// TODO: Error handling.
 		console.error( 'error in item fetch: ', error );
