@@ -7,9 +7,7 @@ import HNStory from './hn-story';
 function Stories( { storyIds, start, end, onMore } ) {
 	const stories = storyIds.slice( start, end ).map( ( id ) => {
 		return (
-			<ViewportChild key={ id }>
-				{ ( { visible } ) => <HNStory id={ id } showStory={ visible } /> }
-			</ViewportChild>
+			<HNStory key={ id } id={ id } />
 		);
 	} );
 
