@@ -8,8 +8,19 @@ This application uses the following:
  * create-react-app
  * fresh-data
  * redux (via fresh-data)
+ 
+## Features
 
-### Try it out!
+ * Simple, clean interface
+ * Single scrolling list with header and footer
+ * Infinite scroll and dynamic loading (no need to click a "more" button)
+ * Automatic, dynamic updates
+   - The list refreshes automatically every 5 minutes, new stories are added at the top.
+   - Individual stories refresh every 30 minutes, just in case something changes.
+ * Offline support
+   - *Coming Soon:* The application will run in an offline mode with data already retrieved.
+
+## Try it out!
 
 After cloning the repo, install and run the development server:
 
@@ -20,7 +31,7 @@ npm start
 
 And your default browser should open to your local dev server.
 
-### Debug info
+## Debug info
 
 In development mode, the React dev tools show the component structure, and the Redux dev tools can show the data fetching. For more debug logging, enter the following into the JS console:
 
