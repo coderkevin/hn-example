@@ -16,13 +16,14 @@
 
 .App-body {
 	flex-grow: 1;
-	overflow: auto;
 }
 
-.App-body ul, ol {
+ul, ol {
 	list-style-type: none;
+	padding-top: 1em;
 	padding-left: 1em;
 	padding-right: 1em;
+	margin: 0;
 }
 
 .App-body li {
