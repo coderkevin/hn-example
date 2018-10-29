@@ -30,6 +30,7 @@ function readNewStories( resourceNames, fetch ) {
 		} ).catch( ( error ) => {
 			// TODO: Error handling.
 			console.error( 'error in newstories fetch: ', error );
+			return { error };
 		} );
 		return [ promise ];
 	}
@@ -52,6 +53,7 @@ function readItem( resourceName, fetch ) {
 	} ).catch( ( error ) => {
 		// TODO: Error handling.
 		console.error( 'error in item fetch: ', error );
+		return { error };
 	} );
 }
 
