@@ -45,12 +45,13 @@ const StoryItem = withApiClient( { mapSelectorsToProps } )(
 			);
 		}
 
+		const url = story.url || `https://news.ycombinator.com/item?id=${ story.id }`;
 		const date = new Date( story.time * 1000 );
 		const dateString = date.toLocaleDateString( undefined, dateOptions );
 		const timeString = date.toLocaleTimeString();
 		return (
 			<li className="App-story">
-				<h3><a href={ story.url }>{ story.title }</a></h3>
+				<h3><a href={ url }>{ story.title }</a></h3>
 				<p className="App-story-byline">Posted: { dateString } at { timeString } by { story.by }</p>
 			</li>
 		);
