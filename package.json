@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@fresh-data/framework": "^0.4.1",
 		"@fresh-data/react-provider": "^0.4.1",
+		"babel-polyfill": "^6.26.0",
 		"debug": "^4.1.0",
 		"react": "^16.5.2",
 		"react-dom": "^16.5.2",
