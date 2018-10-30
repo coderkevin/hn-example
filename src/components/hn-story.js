@@ -49,9 +49,11 @@ const StoryItem = withApiClient( { mapSelectorsToProps } )(
 		const date = new Date( story.time * 1000 );
 		const dateString = date.toLocaleDateString( undefined, dateOptions );
 		const timeString = date.toLocaleTimeString();
+
+		// TODO: If concerned about HN-API MITM XSS attacks, sanitize story.title before rendering here.
 		return (
 			<li className="App-story">
-				<h3><a href={ url }>{ story.title }</a></h3>
+				<h3><a href={ url } dangerouslySetInnerHTML={ { __html: story.title } } /></h3>
 				<p className="App-story-byline">Posted: { dateString } at { timeString } by { story.by }</p>
 			</li>
 		);
