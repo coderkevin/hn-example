@@ -14,6 +14,7 @@ describe( 'selectors', () => {
 	describe( 'getNewStoryIds', () => {
 		it( 'requires the newstories resource', () => {
 			const requirement = {};
+			requireResource.mockReturnValueOnce( {} );
 			getNewStoryIds( getResource, requireResource )( requirement );
 
 			expect( getResource ).not.toHaveBeenCalled();
@@ -25,7 +26,7 @@ describe( 'selectors', () => {
 			const requirement = {};
 			const ids = [ 4, 3, 2, 1 ];
 
-			requireResource.mockReturnValueOnce( ids );
+			requireResource.mockReturnValueOnce( { data: ids } );
 			const result = getNewStoryIds( getResource, requireResource )( requirement );
 			expect( result ).toBe( ids );
 		} );
@@ -36,6 +37,7 @@ describe( 'selectors', () => {
 			const requirement = {};
 			const id = 5575;
 
+			requireResource.mockReturnValueOnce( {} );
 			getItem( getResource, requireResource )( id, requirement );
 
 			expect( getResource ).not.toHaveBeenCalled();
@@ -57,9 +59,10 @@ describe( 'selectors', () => {
 				url: "http://example.com/example-story-1",
 			};
 
-			requireResource.mockReturnValueOnce( item1 );
+			requireResource.mockReturnValueOnce( { data: item1 } );
 			const result = getItem( getResource, requireResource )( 12345, requirement );
 			expect( result ).toBe( item1 );
 		} );
 	} );
+
 } );
