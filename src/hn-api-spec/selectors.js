@@ -1,7 +1,7 @@
 import { MINUTE, SECOND } from '@fresh-data/framework';
 import { getResourceName } from './utils';
 
-const DEFAULT_REQ = { timeout: 30 * SECOND, freshness: 30 * MINUTE };
+const DEFAULT_REQ = { timeout: 60 * SECOND, freshness: 30 * MINUTE };
 const NEW_STORIES_REQ = { ...DEFAULT_REQ, freshness: 5 * MINUTE };
 
 export const getNewStoryIds =

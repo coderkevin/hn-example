@@ -6,7 +6,7 @@ describe( 'operations', () => {
 
 	beforeEach( () => {
 		mockFetch = jest.fn();
-		operations = createOperations( mockFetch );
+		operations = createOperations( mockFetch, false );
 	} );
 
 	describe( 'read', () => {

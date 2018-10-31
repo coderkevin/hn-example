@@ -1,8 +1,11 @@
+import debugFactory from 'debug';
 import {
 	getResourceIdentifier,
 	isResourcePrefix
 } from './utils';
+import persistOperation from './persist-operation';
 
+const debug = debugFactory( 'hn-example:hn-api:operations' );
 const BASE_URL = 'https://hacker-news.firebaseio.com/v0/';
 
 function readNewStories( resourceNames, fetch ) {
@@ -13,8 +16,8 @@ function readNewStories( resourceNames, fetch ) {
 				return { 'newstories': { data } };
 			} );
 		} ).catch( ( error ) => {
-			// TODO: Error handling.
-			console.error( 'error in newstories fetch: ', error );
+			debug( 'error in newstories fetch: ', error );
+			// TODO: Application error handling?
 			return { error };
 		} );
 		return [ promise ];
@@ -36,21 +39,27 @@ function readItem( resourceName, fetch ) {
 			return { [ resourceName ]: { data } };
 		} );
 	} ).catch( ( error ) => {
-		// TODO: Error handling.
-		console.error( 'error in item fetch: ', error );
+		debug( 'error in item fetch: ', error );
+		// TODO: Application error handling?
 		return { error };
 	} );
 }
 
-export function createOperations( fetch ) {
-	return {
-		read( resourceNames ) {
+export function createOperations( fetch, withPersistence ) {
+	const operations = {
+		read: ( resourceNames ) => {
 			return [
 				...readNewStories( resourceNames, fetch ),
 				...readItems( resourceNames, fetch ),
 			];
 		},
 	};
+
+	if ( withPersistence ) {
+		operations.read = persistOperation( operations.read );
+	}
+
+	return operations;
 };
 
-export default createOperations( window.fetch );
+export default createOperations( window.fetch, true );
