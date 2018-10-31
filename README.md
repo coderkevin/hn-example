@@ -8,6 +8,7 @@ This application uses the following:
  * create-react-app
  * fresh-data
  * redux (via fresh-data)
+ * localforage
  
 ## Features
 
