@@ -14,9 +14,9 @@ const DAYS_RETENTION = 2;
 const EXPIRATION_DATE = new Date( Date.now() - ( DAYS_RETENTION * 24 * 60 * 60 * 1000 ) );
 
 // Average story data is 275 utf-8 chars
-// Average stories are 100 per day for DAYS_RETENTION days
+// Average stories are 750 per day for DAYS_RETENTION days
 // Both values padded x2 to ensure we don't run out of space
-const CACHE_SIZE = ( 275 * 2 ) * ( 100 * DAYS_RETENTION * 2 );
+const CACHE_SIZE = ( 275 * 2 ) * ( 750 * DAYS_RETENTION * 2 );
 
 function createDefault() {
 	localforage.config = {
